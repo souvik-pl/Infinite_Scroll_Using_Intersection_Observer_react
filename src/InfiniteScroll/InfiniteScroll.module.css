@@ -1,0 +1,11 @@
+.container {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+}
+
+.observer {
+    width: 100%;
+    height: 100px;
+}
