@@ -27,14 +27,13 @@ function InfiniteScroll(props: InfiniteScrollProps) {
         }
     }, [props.itemList])
 
+    // This useEffect will register the intersection observer as soon as the scrollbar appears.
     useEffect(() => {
         if (isScrollbarAppeared) {
             const observer = new IntersectionObserver((entries) => {
                 const entry = entries[0];
                 if (entry.isIntersecting) {
-                    // makeAPICall();
                     setIsIntersecting(true);
-                    // console.log("Intersect");
                 }
             });
 
@@ -42,6 +41,7 @@ function InfiniteScroll(props: InfiniteScrollProps) {
         }
     }, [isScrollbarAppeared])
 
+    // This useEffect will make API call when user scrolls to the bottom of the list
     useEffect(() => {
         if (isIntersecting) {
             makeAPICall();
